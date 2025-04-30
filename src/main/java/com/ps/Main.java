@@ -1,4 +1,6 @@
 package com.ps;
+
+import javax.sound.midi.Soundbank;
 import java.io.*;
 import java.nio.Buffer;
 import java.time.LocalTime;
@@ -11,24 +13,37 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        switch(homeScreen()){
-            case "D":
-                depositMoney();
-                break;
-            case "P":
-                paymentMoney();
-                break;
-            case "L":
-                ledgerScreen();
-                break;
+        boolean idk = true;
+        while (idk) {
+            switch (homeScreen()) {
+                case "D":
+                    depositMoney();
+                    space();
+                    break;
+                case "P":
+                    paymentMoney();
+                    space();
+                    break;
+                case "L":
+                    Helper.startLedgerScreen();
+                    space();
+                    break;
+                case "X":
+                    System.out.println("Thank you for using our application!");
+                    idk = false;
+                    break;
+                default:
+                    System.out.println("Please only type the valid one");
+            }
         }
     }
 
     //--------------- Helping Method -------------//
 
-    public static String homeScreen(){
+    public static String homeScreen() {
         String userChoice;
 
+        System.out.println("Welcome to Accounting Ledger Application");
         System.out.println("D) Add Deposit");
         System.out.println("P) Make Payment (Debit)");
         System.out.println("L) Ledger");
@@ -39,7 +54,7 @@ public class Main {
         return userChoice;
     }
 
-    public static Transaction enterDetails(){
+    public static Transaction enterDetails() {
 
         System.out.println("Enter date (YYYY-MM-DD): ");
         LocalDate date = LocalDate.parse(scanner.next());
@@ -62,63 +77,42 @@ public class Main {
 
     }
 
-    public static void depositMoney(){
-        try{
+    public static void depositMoney() {
+        try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("transactions.csv", true));
 
             Transaction t = enterDetails();
             writer.write(t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " +
                     t.getVendor() + " | " + t.getAmount());
 
-            writer.close();
             writer.newLine();
+            writer.close();
             System.out.println("Deposit added successfully!");
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Something went wrong! We will let the team know\n" +
                     "Sorry for the inconvenience");
         }
     }
 
-    public static void  paymentMoney(){
-        try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter("transactions.csv"));
+    public static void paymentMoney() {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("transactions.csv", true));
 
             Transaction t = enterDetails();
             writer.write(t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " +
-                    t.getVendor() + " | " + t.getAmount()*-1);
+                    t.getVendor() + " | " + t.getAmount() * -1);
 
+            writer.newLine();
             writer.close();
             System.out.println("Payment added successfully!");
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Something went wrong");
         }
     }
 
-    public static void  ledgerScreen(){
-        System.out.println("====== Ledger ======");
-
-        System.out.printf("%-12s | %-8s | %-20s | %-15s | %-10s%n",
-                "Date", "Time", "Description", "Vendor", "Amount");
-
-        System.out.println("---------------------------------------------" +
-                "---------------------");
-
-        try{
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("transactions.csv"));
-
-            String line;
-            while((line = bufferedReader.readLine()) != null){
-                String[] transaction = line.split("\\|");
-                System.out.printf("%-12s | %-8s | %-20s | %-15s | %-10s%n",
-                        transaction[0].trim(), transaction[1].trim(), transaction[2].trim(),
-                        transaction[3].trim(), transaction[4].trim());
-            }
-            bufferedReader.close();
-        }
-        catch (Exception e){
-            System.out.println("Not good");
+    public static void space() {
+        for (int i = 0; i < 3; i++) {
+            System.out.println();
         }
     }
 
