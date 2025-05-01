@@ -24,6 +24,7 @@ public class Helper {
                 space();
                 break;
             case "R":
+                HelperForReport.conditionDependOnUserChoice();
                 break;
             case "H":
                 space();
