@@ -29,7 +29,7 @@ public class LedgerScreen {
                 Main.homeScreen();
                 break;
             default:
-                System.out.println("❌ Invalid option.");
+                System.out.println("Invalid option.");
         }
 
         space(); // print some spacing after each screen

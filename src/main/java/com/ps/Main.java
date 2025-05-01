@@ -32,7 +32,7 @@ public class Main {
                     running = false;
                     break;
                 default:
-                    System.out.println("❌ Please choose a valid option (D, P, L, X).\n");
+                    System.out.println("Please choose a valid option (D, P, L, X).\n");
             }
         }
     }
@@ -74,9 +74,9 @@ public class Main {
             writer.write(t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " +
                     t.getVendor() + " | " + t.getAmount());
             writer.newLine();
-            System.out.println("✅ Deposit added successfully!");
+            System.out.println("Deposit added successfully!");
         } catch (Exception e) {
-            System.out.println("❌ Something went wrong while recording the deposit.");
+            System.out.println("Something went wrong while recording the deposit.");
         }
     }
 
@@ -86,9 +86,9 @@ public class Main {
             writer.write(t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " +
                     t.getVendor() + " | " + (t.getAmount() * -1));
             writer.newLine();
-            System.out.println("✅ Payment added successfully!");
+            System.out.println("Payment added successfully!");
         } catch (Exception e) {
-            System.out.println("❌ Something went wrong while recording the payment.");
+            System.out.println("Something went wrong while recording the payment.");
         }
     }
 
