@@ -18,6 +18,8 @@ public class HelperForReport {
                     space();
                     break;
                 case 2:
+                    previousMonth();
+                    space();
                     break;
                 case 3:
                     break;
@@ -75,15 +77,16 @@ public class HelperForReport {
     }
 
     public static void previousMonth(){
-        System.out.println("Which month of transaction you would like to display? Please enter the number of month: ");
-        int userInputOfMonth = scanner.nextInt();
-
-        System.out.printf("%-12s | %-8s | %-20s | %-15s | %-10s%n",
-                "Date", "Time", "Description", "Vendor", "Amount");
-
-        System.out.println("------------------------------------------------------------------");
+        LocalDate today = LocalDate.now();
+        LocalDate lastMonth = today.minusMonths(1);
+        int lastMonthValue = lastMonth.getMonthValue();
 
         try{
+            System.out.printf("%-12s | %-8s | %-20s | %-15s | %-10s%n",
+                    "Date", "Time", "Description", "Vendor", "Amount");
+
+            System.out.println("------------------------------------------------------------------");
+
             BufferedReader bufferedReader = new BufferedReader(new FileReader("transactions.csv"));
 
             String line;
@@ -91,12 +94,14 @@ public class HelperForReport {
                 String[] data = line.split("\\|");
                 LocalDate date = LocalDate.parse(data[0].trim());
                 int month = date.getMonthValue();
-                if(userInputOfMonth == month){
+
+                if(lastMonthValue == month){
                     System.out.printf("%-12s | %-8s | %-20s | %-15s | %-10s%n",
                             data[0], data[1], data[2], data[3], data[4]);
                 }
             }
         } catch (Exception e) {
+            System.out.println("There are no transactions for last month");
 
         }
 

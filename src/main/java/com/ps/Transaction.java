@@ -58,4 +58,9 @@ public class Transaction {
     public void setAmount(double amount) {
         this.amount = amount;
     }
+
+    public void print() {
+        System.out.printf("%-12s | %-8s | %-20s | %-15s | %-10.2f%n",
+                date.toString(), time, description, vendor, amount);
+    }
 }

@@ -1,5 +1,4 @@
 package com.ps;
-
 import javax.sound.midi.Soundbank;
 import java.io.*;
 import java.nio.Buffer;
@@ -26,7 +25,7 @@ public class Main {
                     space();
                     break;
                 case "L":
-                    Helper.startLedgerScreen();
+                    LedgerScreen.startLedgerScreen();
                     space();
                     break;
                 case "X":
