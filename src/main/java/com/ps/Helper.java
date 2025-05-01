@@ -69,7 +69,7 @@ public class Helper {
         }
     }
 
-    public static void  showPaymentTransaction(){
+    public static void showPaymentTransaction() {
         System.out.printf("%-12s | %-8s | %-20s | %-15s | %-10s%n",
                 "Date", "Time", "Description", "Vendor", "Amount");
 
@@ -81,7 +81,7 @@ public class Helper {
             while ((line = bufferedReader.readLine()) != null) {
 
                 String[] transaction = line.split("\\|");
-                if(Double.parseDouble(transaction[4]) < 0){
+                if (Double.parseDouble(transaction[4]) < 0) {
                     System.out.printf("%-12s | %-8s | %-20s | %-15s | %-10s%n",
                             transaction[0].trim(), transaction[1].trim(), transaction[2].trim(),
                             transaction[3].trim(), transaction[4].trim());
@@ -106,7 +106,7 @@ public class Helper {
             while ((line = bufferedReader.readLine()) != null) {
 
                 String[] transaction = line.split("\\|");
-                if(Double.parseDouble(transaction[4]) > 0){
+                if (Double.parseDouble(transaction[4]) > 0) {
                     System.out.printf("%-12s | %-8s | %-20s | %-15s | %-10s%n",
                             transaction[0].trim(), transaction[1].trim(), transaction[2].trim(),
                             transaction[3].trim(), transaction[4].trim());

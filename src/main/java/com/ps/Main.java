@@ -5,6 +5,7 @@ import java.io.*;
 import java.nio.Buffer;
 import java.time.LocalTime;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -56,11 +57,15 @@ public class Main {
 
     public static Transaction enterDetails() {
 
-        System.out.println("Enter date (YYYY-MM-DD): ");
-        LocalDate date = LocalDate.parse(scanner.next());
+//        System.out.println("Enter date (YYYY-MM-DD): ");
+//        LocalDate date = LocalDate.parse(scanner.next());
+        LocalDate date = LocalDate.now();
 
-        System.out.println("Enter time (HH:MM)");
-        LocalTime time = LocalTime.parse(scanner.next());
+//        System.out.println("Enter time (HH:MM)");
+//        LocalTime time = LocalTime.parse(scanner.next());
+        LocalTime now = LocalTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        LocalTime time = LocalTime.parse(now.format(formatter));
 
         System.out.println("Enter description: ");
         String description = scanner.next();
