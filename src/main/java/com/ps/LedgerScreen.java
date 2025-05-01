@@ -23,7 +23,7 @@ public class LedgerScreen {
                 showTransactionsByType(false); // payments
                 break;
             case "R":
-                HelperForReport.conditionDependOnUserChoice();
+                ReportScreen.conditionDependOnUserChoice();
                 break;
             case "H":
                 Main.homeScreen();
@@ -43,6 +43,7 @@ public class LedgerScreen {
         System.out.println("P) Payments Only");
         System.out.println("R) Reports");
         System.out.println("H) Home");
+        System.out.println("=====================");
         System.out.print("Choose an option: ");
         return scanner.next().toUpperCase();
     }
