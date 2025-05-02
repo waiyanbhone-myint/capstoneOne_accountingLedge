@@ -62,11 +62,21 @@ public class ReportScreen {
 
         System.out.print("Enter start date (YYYY-MM-DD) or press Enter to skip: ");
         String startInput = scanner.nextLine();
-        LocalDate startDate = startInput.isEmpty() ? null : LocalDate.parse(startInput);
+        LocalDate startDate;
+        if (startInput.isEmpty()) {
+            startDate = null;
+        } else {
+            startDate = LocalDate.parse(startInput);
+        }
 
         System.out.print("Enter end date (YYYY-MM-DD) or press Enter to skip: ");
         String endInput = scanner.nextLine();
-        LocalDate endDate = endInput.isEmpty() ? null : LocalDate.parse(endInput);
+        LocalDate endDate;
+        if (endInput.isEmpty()) {
+            endDate = null;
+        } else {
+            endDate = LocalDate.parse(endInput);
+        }
 
         System.out.print("Enter description or press Enter to skip: ");
         String descriptionInput = scanner.nextLine().toLowerCase();
@@ -76,7 +86,12 @@ public class ReportScreen {
 
         System.out.print("Enter amount or press Enter to skip: ");
         String amountInput = scanner.nextLine();
-        Double amount = amountInput.isEmpty() ? null : Double.parseDouble(amountInput);
+        Double amount;
+        if (amountInput.isEmpty()) {
+            amount = null;
+        } else {
+            amount = Double.parseDouble(amountInput);
+        }
 
         printHeader();
         boolean found = false;
@@ -114,8 +129,16 @@ public class ReportScreen {
     }
 
     public static void monthToDate() {
-        System.out.print("Enter the month (1-12): ");
-        int userMonth = scanner.nextInt();
+        System.out.println("Do you want to view current month? (Y/N): ");
+        String choice = scanner.next().toUpperCase();
+
+        int monthCheck;
+        if (choice.equals("Y")) {
+            monthCheck = LocalDate.now().getMonthValue();
+        } else {
+            System.out.println("Enter the month (1-12): ");
+            monthCheck = scanner.nextInt();
+        }
 
         printHeader();
         try (BufferedReader reader = new BufferedReader(new FileReader("transactions.csv"))) {
@@ -123,7 +146,8 @@ public class ReportScreen {
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split("\\|");
                 LocalDate date = LocalDate.parse(data[0].trim());
-                if (date.getMonthValue() == userMonth) {
+
+                if (date.getMonthValue() == monthCheck) {
                     printTransaction(data);
                 }
             }
