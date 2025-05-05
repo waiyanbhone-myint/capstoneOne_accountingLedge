@@ -8,11 +8,28 @@
 2025-01-20 | 13:15 | freelance | Upwork | 850.0
 2024-03-25 | 17:10 | rent | landlord | -1200.0
 2023-09-09 | 09:50 | groceries | Walmart | -76.45
-2025-05-15 | 10:05 | refund | Apple | 200.0
 2023-12-01 | 14:40 | book | Amazon | -25.99
 2024-06-21 | 11:22 | salary | Employer | 3200.0
-2025-02-08 | 18:05 | utilities | ConEd | -145.30
-2024-10-10 | 07:55 | bonus | Employer | 500.0
-2025-05-01 | 11:48 | good | amazon | 400.0
-2025-05-01 | 23:20 | office chair | amazon | 500.0
-2025-05-01 | 23:21 | gold | 47 street | -400.0
+2025-05-02 | 10:14 | good3 | amazon | 600.0
+2025-05-02 | 10:14 | testing | amazon | 300.0
+2025-05-02 | 10:20 | amazon | amazon | 200.0
+2025-05-02 | 10:26 | testing | testing | 400.0
+2025-05-02 | 10:26 | l | l | -400.0
+2025-05-02 | 10:28 | employer | employer | 200.0
+2025-05-02 | 10:29 | salary | atm | 500.0
+2025-05-02 | 10:30 | payment | testing | 200.0
+2025-05-02 | 10:31 | testing | testing | 200.0
+2025-05-02 | 10:37 | testing | testing | 400.0
+2025-05-02 | 10:39 | testing | testing | 400.0
+2025-05-02 | 10:40 | testing | testing | 400.0
+2025-05-02 | 10:40 | testing | testing | -400.0
+2025-05-02 | 10:41 | testing1 | testing1 | 600.0
+2025-05-02 | 10:45 | testing2 | testing2 | 800.0
+2025-05-02 | 10:45 | testing2 | testing2 | -400.0
+2025-05-02 | 10:51 | testing3 | testing3 | 500.0
+2025-05-02 | 10:51 | testing3 | testing3 | -400.0
+2025-05-02 | 11:12 | testing4 | testing4 | 900.0
+2025-05-02 | 11:13 | testing4 | testing4 | -500.0
+2025-02-30 | 11:12 | testing4 | testing4 | 900.0
+2025-05-05 | 15:06 | testing dynamoDB | testing dynamoDB | 300.0
+2025-05-05 | 15:18 | testing DB | testing DB | 400.0

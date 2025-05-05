@@ -120,7 +120,8 @@ public class ReportScreen {
                 }
             }
         } catch (Exception e) {
-            //System.out.println("Error during custom search.");
+            System.out.println("Error during custom search." + e.getMessage());
+            e.printStackTrace();
         }
 
         if (!found) {

@@ -74,6 +74,16 @@ public class Main {
             writer.write(t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " +
                     t.getVendor() + " | " + t.getAmount());
             writer.newLine();
+
+            // calling dynamoDBHelper which I created in aws cloud
+//            DynamoDBHelper.addTransaction(
+//                    t.getDate().toString(),
+//                    t.getTime().toString(),
+//                    t.getDescription(),
+//                    t.getVendor(),
+//                    t.getAmount()
+//            );
+
             System.out.println("Deposit added successfully!");
         } catch (Exception e) {
             System.out.println("Something went wrong while recording the deposit.");
